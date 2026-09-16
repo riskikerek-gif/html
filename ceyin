@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ceyin ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Georgia", serif;
+    background: #090909;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 80, 120, .15), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 80, .12), transparent 30%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================
+   QR PAGE
+========================= */
+
+#qrPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.qr-box {
+    width: min(400px, 90%);
+    padding: 35px 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 0 50px rgba(255, 0, 80, .12);
+    backdrop-filter: blur(10px);
+}
+
+.qr-box h1 {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.qr-box p {
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.qr-code {
+    width: 210px;
+    height: 210px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin: auto;
+    display: block;
+}
+
+.scan-text {
+    margin-top: 20px;
+    color: #ff8da8;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+#main {
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    flex-direction: column;
+}
+
+.small-title {
+    color: #ff8da8;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 12vw, 100px);
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #ff6688;
+}
+
+.hero p {
+    max-width: 500px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.open-btn {
+    margin-top: 35px;
+    padding: 14px 30px;
+    border: 1px solid #ff6688;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.open-btn:hover {
+    background: #ff6688;
+    transform: scale(1.05);
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-section {
+    flex-direction: column;
+}
+
+.music-section h2 {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.music-section p {
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.music-player {
+    margin-top: 35px;
+    width: min(500px, 95%);
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.06);
+}
+
+.music-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ff6688;
+    font-size: 35px;
+}
+
+.music-name {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.music-artist {
+    margin-top: 7px;
+    color: #aaa;
+}
+
+audio {
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery {
+    flex-direction: column;
+}
+
+.gallery h2 {
+    font-size: 42px;
+    font-weight: normal;
+    margin-bottom: 35px;
+}
+
+.photos {
+    width: min(1000px, 95%);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.photo {
+    height: 430px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #111;
+    transition: .5s;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+}
+
+.photo:nth-child(even) {
+    transform: translateY(25px);
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    flex-direction: column;
+}
+
+.message-card {
+    max-width: 700px;
+    padding: 45px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.message h2 {
+    font-size: 40px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.message p {
+    color: #ddd;
+    line-height: 2;
+    font-size: 16px;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift {
+    flex-direction: column;
+}
+
+.gift h2 {
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.gift p {
+    color: #aaa;
+    margin: 15px 0 30px;
+}
+
+.gift-btn {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    background: #ff6688;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gift-btn:hover {
+    transform: scale(1.08);
+}
+
+.gift-content {
+    display: none;
+    margin-top: 35px;
+    animation: fadeIn 1s ease;
+}
+
+.gift-content img {
+    width: min(400px, 90vw);
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(255,0,80,.25);
+}
+
+.gift-content h3 {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.gift-content p {
+    margin-top: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+}
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 18px;
+    pointer-events: none;
+    animation: floatHeart 5s linear forwards;
+    opacity: .8;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(.8);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    .photos {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 400px;
+    }
+
+    .photo:nth-child(even) {
+        transform: none;
+    }
+
+    .gallery h2,
+    .message h2,
+    .gift h2 {
+        font-size: 32px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ==================================
+     HALAMAN QR
+================================== -->
+
+<div id="qrPage">
+
+    <div class="qr-box">
+
+        <h1>CEYIN ❤️</h1>
+
+        <p>
+            Ada sesuatu yang aku siapkan
+            khusus untuk kamu.
+        </p>
+
+        <!-- GANTI qr.png DENGAN QR KAMU -->
+        <img
+            src="qr.png"
+            class="qr-code"
+            alt="QR Code">
+
+        <div class="scan-text">
+            SCAN ME ❤️
+        </div>
+
+        <button class="open-btn" onclick="openWebsite()">
+            Buka Hadiah
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================
+     WEBSITE UTAMA
+================================== -->
+
+<div id="main">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="small-title">
+            A LITTLE SOMETHING FOR
+        </div>
+
+        <h1>
+            Ceyin<span>❤️</span>
+        </h1>
+
+        <p>
+            Aku mungkin nggak selalu pandai
+            mengungkapkan semuanya dengan kata-kata,
+            jadi kali ini aku membuat sesuatu kecil
+            khusus untuk kamu.
+        </p>
+
+        <button class="open-btn"
+                onclick="document.getElementById('music').scrollIntoView()">
+            Mulai ❤️
+        </button>
+
+    </section>
+
+
+    <!-- ==================================
+         MUSIC
+    ================================== -->
+
+    <section class="music-section" id="music">
+
+        <h2>Our Song</h2>
+
+        <p>
+            Putar lagu ini sambil melihat
+            semua kenangan kita.
+        </p>
+
+        <div class="music-player">
+
+            <div class="music-circle">
+                ♫
+            </div>
+
+            <div class="music-name">
+                Shape of My Heart
+            </div>
+
+            <div class="music-artist">
+                Sting
+            </div>
+
+            <!-- GANTI DENGAN FILE LAGU KAMU -->
+            <audio controls>
+                <source src="shape-of-my-heart.mp3"
+                        type="audio/mpeg">
+
+                Browser kamu tidak mendukung audio.
+            </audio>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         5 FOTO
+    ================================== -->
+
+    <section class="gallery">
+
+        <h2>
+            Five Little Memories ❤️
+        </h2>
+
+        <div class="photos">
+
+            <!-- FOTO 1 -->
+            <div class="photo">
+                <img src="foto1.jpg"
+                     alt="Foto Ceyin 1">
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="photo">
+                <img src="foto2.jpg"
+                     alt="Foto Ceyin 2">
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="photo">
+                <img src="foto3.jpg"
+                     alt="Foto Ceyin 3">
+            </div>
+
+            <!-- FOTO 4 -->
+            <div class="photo">
+                <img src="foto4.jpg"
+                     alt="Foto Ceyin 4">
+            </div>
+
+            <!-- FOTO 5 -->
+            <div class="photo">
+                <img src="foto5.jpg"
+                     alt="Foto Ceyin 5">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         SURAT
+    ================================== -->
+
+    <section class="message">
+
+        <div class="message-card">
+
+            <h2>
+                Untuk Ceyin ❤️
+            </h2>
+
+            <p>
+                Terima kasih sudah menjadi bagian
+                dari hari-hariku.
+                <br><br>
+
+                Dari banyaknya hal yang terjadi,
+                ada satu hal yang selalu aku syukuri:
+                bisa mengenal kamu.
+                <br><br>
+
+                Aku nggak tahu akan seperti apa
+                cerita kita nanti, tapi aku ingin
+                menikmati setiap momen yang kita
+                punya sekarang.
+                <br><br>
+
+                Semoga kamu selalu bahagia,
+                dan semoga aku bisa menjadi salah
+                satu alasan di balik senyummu.
+                <br><br>
+
+                ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================
+         HADIAH
+    ================================== -->
+
+    <section class="gift">
+
+        <h2>
+            One Last Thing 🎁
+        </h2>
+
+        <p>
+            Masih ada satu hadiah kecil
+            buat kamu.
+        </p>
+
+        <button class="gift-btn"
+                onclick="showGift()">
+            Buka Hadiahnya 🎁
+        </button>
+
+        <div class="gift-content" id="giftContent">
+
+            <!-- GANTI hadiah.jpg DENGAN FOTO HADIAH -->
+            <img src="hadiah.jpg"
+                 alt="Hadiah untuk Ceyin">
+
+            <h3>
+                This is for you, Ceyin ❤️
+            </h3>
+
+            <p>
+                Semoga kamu suka.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with ❤️ especially for Ceyin
+    </footer>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   BUKA WEBSITE
+================================== */
+
+function openWebsite() {
+
+    document.getElementById("qrPage").style.display = "none";
+
+    document.getElementById("main").style.display = "block";
+
+    createHearts();
+
+    window.scrollTo(0, 0);
+}
+
+
+/* ==================================
+   HADIAH
+================================== */
+
+function showGift() {
+
+    const gift = document.getElementById("giftContent");
+
+    gift.style.display = "block";
+
+    createHearts(15);
+
+}
+
+
+/* ==================================
+   ANIMASI HATI
+================================== */
+
+function createHearts(amount = 8) {
+
+    for(let i = 0; i < amount; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        heart.style.fontSize =
+            (12 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+}
+
+
+/* ==================================
+   HATI OTOMATIS
+================================== */
+
+setInterval(() => {
+
+    if(document.getElementById("main").style.display === "block") {
+        createHearts(1);
+    }
+
+}, 2500);
+
+</script>
+
+</body>
+</html>
