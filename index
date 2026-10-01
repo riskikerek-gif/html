@@ -1,0 +1,1250 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Girl 🌸❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    min-height:100vh;
+    font-family:Georgia,serif;
+    background:
+        radial-gradient(circle at center,#4b1d40,#170b1b 50%,#040207);
+    color:white;
+}
+
+/* =========================
+   BINTANG
+========================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.2;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+
+/* =========================
+   HALAMAN
+========================= */
+
+.page{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(.8);
+
+    transition:
+        .9s ease;
+}
+
+.page.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+.title{
+    font-size:clamp(42px,9vw,85px);
+
+    color:#ffacd4;
+
+    text-shadow:
+        0 0 10px #ff4d9d,
+        0 0 30px #ff2485,
+        0 0 60px #ff2485;
+
+    animation:titleShake 2.5s infinite;
+}
+
+@keyframes titleShake{
+
+    0%,90%,100%{
+        transform:rotate(0);
+    }
+
+    92%{
+        transform:rotate(-3deg);
+    }
+
+    94%{
+        transform:rotate(3deg);
+    }
+
+    96%{
+        transform:rotate(-2deg);
+    }
+
+    98%{
+        transform:rotate(2deg);
+    }
+}
+
+
+/* =========================
+   BUNGA BESAR
+========================= */
+
+.flower{
+    position:relative;
+
+    width:230px;
+    height:250px;
+
+    margin-bottom:10px;
+}
+
+
+/* BATANG UTAMA */
+
+.main-stem{
+    position:absolute;
+
+    width:10px;
+    height:170px;
+
+    bottom:0;
+    left:110px;
+
+    background:
+        linear-gradient(
+            to right,
+            #174b22,
+            #70b95b,
+            #174b22
+        );
+
+    border-radius:10px;
+
+    transform-origin:bottom;
+
+    animation:sway 4s infinite ease-in-out;
+}
+
+@keyframes sway{
+
+    0%,100%{
+        transform:rotate(-3deg);
+    }
+
+    50%{
+        transform:rotate(4deg);
+    }
+}
+
+
+/* =========================
+   BUNGA
+========================= */
+
+.bloom{
+    position:absolute;
+
+    width:145px;
+    height:145px;
+
+    top:0;
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        scale(.05);
+
+    animation:
+        bloom 3s forwards,
+        flowerMove 5s ease-in-out infinite 3s;
+}
+
+@keyframes bloom{
+
+    0%{
+        transform:
+            translateX(-50%)
+            scale(.05)
+            rotate(-40deg);
+    }
+
+    60%{
+        transform:
+            translateX(-50%)
+            scale(1.2)
+            rotate(10deg);
+    }
+
+    100%{
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes flowerMove{
+
+    0%,100%{
+        transform:
+            translateX(-50%)
+            rotate(-5deg);
+    }
+
+    50%{
+        transform:
+            translateX(-50%)
+            rotate(5deg);
+    }
+}
+
+
+/* KELOPAK */
+
+.petal{
+    position:absolute;
+
+    width:72px;
+    height:95px;
+
+    left:36px;
+    top:25px;
+
+    border-radius:
+        60% 60% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #ffe1ed,
+            #ff79b9 45%,
+            #ed277c
+        );
+
+    box-shadow:
+        0 0 20px #ff3d91;
+}
+
+.petal:nth-child(1){
+    transform:rotate(0deg) translateY(-27px);
+}
+
+.petal:nth-child(2){
+    transform:rotate(72deg) translateY(-27px);
+}
+
+.petal:nth-child(3){
+    transform:rotate(144deg) translateY(-27px);
+}
+
+.petal:nth-child(4){
+    transform:rotate(216deg) translateY(-27px);
+}
+
+.petal:nth-child(5){
+    transform:rotate(288deg) translateY(-27px);
+}
+
+
+/* TENGAH */
+
+.flower-center{
+    position:absolute;
+
+    width:48px;
+    height:48px;
+
+    left:48px;
+    top:48px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff4a5,
+            #ffd238,
+            #e69a16
+        );
+
+    box-shadow:
+        0 0 25px #ffd83d;
+
+    z-index:10;
+}
+
+
+/* =========================
+   CABANG 9
+========================= */
+
+.branches{
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+}
+
+
+/* SETIAP CABANG */
+
+.branch{
+    position:absolute;
+
+    width:280px;
+    min-height:125px;
+
+    padding:10px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:
+        rgba(30,8,25,.88);
+
+    border:
+        1px solid #ff71b4;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 0 20px rgba(255,60,145,.45);
+
+    opacity:0;
+
+    transition:
+        1s ease;
+
+    pointer-events:auto;
+}
+
+
+/* GAMBAR */
+
+.branch img{
+    width:85px;
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    border:2px solid #ff8bc4;
+
+    box-shadow:
+        0 0 15px #ff3d91;
+
+    flex-shrink:0;
+}
+
+
+/* TEKS */
+
+.branch-text{
+    font-size:14px;
+    line-height:1.5;
+    color:#ffe4f0;
+}
+
+.branch-text strong{
+    display:block;
+
+    color:#ff8fc2;
+
+    font-size:16px;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   POSISI 9 CABANG
+========================= */
+
+.branch:nth-child(1){
+    top:8%;
+    left:3%;
+}
+
+.branch:nth-child(2){
+    top:30%;
+    left:3%;
+}
+
+.branch:nth-child(3){
+    top:55%;
+    left:3%;
+}
+
+.branch:nth-child(4){
+    top:76%;
+    left:8%;
+}
+
+.branch:nth-child(5){
+    top:8%;
+    right:3%;
+}
+
+.branch:nth-child(6){
+    top:30%;
+    right:3%;
+}
+
+.branch:nth-child(7){
+    top:55%;
+    right:3%;
+}
+
+.branch:nth-child(8){
+    top:76%;
+    right:8%;
+}
+
+.branch:nth-child(9){
+    top:42%;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:300px;
+}
+
+
+/* CABANG MUNCUL */
+
+.branch.show{
+    opacity:1;
+
+    animation:
+        branchAppear 1s ease;
+}
+
+@keyframes branchAppear{
+
+    from{
+        opacity:0;
+
+        transform:
+            scale(.3)
+            translateY(30px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   TOMBOL
+========================= */
+
+button{
+    position:relative;
+    z-index:100;
+
+    margin-top:15px;
+
+    padding:13px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            45deg,
+            #ff2f88,
+            #ff8bc4
+        );
+
+    box-shadow:
+        0 0 20px #ff3188;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+
+/* =========================
+   HALAMAN PENUTUP
+========================= */
+
+.closing{
+    max-width:800px;
+
+    padding:30px;
+}
+
+.closing h1{
+
+    font-size:
+        clamp(38px,8vw,75px);
+
+    color:#ff9bc9;
+
+    text-shadow:
+        0 0 15px #ff3d91,
+        0 0 40px #ff2485;
+}
+
+
+/* KOCOKAN KATA-KATA */
+
+.shake-text{
+
+    margin-top:25px;
+
+    font-size:
+        clamp(19px,4vw,30px);
+
+    line-height:1.8;
+
+    color:#ffe7f2;
+
+    animation:
+        shakeText 1.5s infinite;
+}
+
+@keyframes shakeText{
+
+    0%,100%{
+        transform:
+            translateX(0)
+            rotate(0);
+    }
+
+    10%{
+        transform:
+            translateX(-8px)
+            rotate(-2deg);
+    }
+
+    20%{
+        transform:
+            translateX(8px)
+            rotate(2deg);
+    }
+
+    30%{
+        transform:
+            translateX(-7px)
+            rotate(-1deg);
+    }
+
+    40%{
+        transform:
+            translateX(7px)
+            rotate(1deg);
+    }
+
+    50%{
+        transform:
+            translateX(-4px);
+    }
+
+    60%{
+        transform:
+            translateX(4px);
+    }
+}
+
+.shake-text span{
+    color:#ff71b4;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 0 15px #ff3d91;
+}
+
+
+/* =========================
+   HATI
+========================= */
+
+.heart{
+    position:fixed;
+
+    bottom:-40px;
+
+    font-size:22px;
+
+    pointer-events:none;
+
+    animation:
+        heartFly linear forwards;
+
+    z-index:5;
+}
+
+@keyframes heartFly{
+
+    from{
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media(max-width:700px){
+
+    .flower{
+        transform:scale(.75);
+        margin-top:-50px;
+    }
+
+    .branch{
+        width:180px;
+        min-height:85px;
+        padding:6px;
+    }
+
+    .branch img{
+        width:52px;
+        height:65px;
+    }
+
+    .branch-text{
+        font-size:10px;
+    }
+
+    .branch-text strong{
+        font-size:12px;
+    }
+
+    .branch:nth-child(1){
+        top:3%;
+        left:1%;
+    }
+
+    .branch:nth-child(2){
+        top:20%;
+        left:1%;
+    }
+
+    .branch:nth-child(3){
+        top:37%;
+        left:1%;
+    }
+
+    .branch:nth-child(4){
+        top:54%;
+        left:1%;
+    }
+
+    .branch:nth-child(5){
+        top:3%;
+        right:1%;
+    }
+
+    .branch:nth-child(6){
+        top:20%;
+        right:1%;
+    }
+
+    .branch:nth-child(7){
+        top:37%;
+        right:1%;
+    }
+
+    .branch:nth-child(8){
+        top:54%;
+        right:1%;
+    }
+
+    .branch:nth-child(9){
+        top:72%;
+        left:50%;
+        width:230px;
+    }
+
+    .page h1{
+        font-size:42px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =================================
+     MUSIK
+================================= -->
+
+<audio id="music" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =================================
+     BINTANG
+================================= -->
+
+<div class="stars" id="stars"></div>
+
+
+<!-- =================================
+     HALAMAN PEMBUKA
+================================= -->
+
+<section class="page active" id="opening">
+
+    <div class="flower">
+
+        <div class="main-stem"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="flower-center"></div>
+
+        </div>
+
+    </div>
+
+    <h1 class="title">
+        MY GIRL ❤️
+    </h1>
+
+    <p style="
+        margin-top:15px;
+        color:#ffd9e9;
+        font-size:18px;
+    ">
+        Ada satu bunga untuk seseorang
+        yang sangat spesial...
+    </p>
+
+    <button onclick="startFlower()">
+        Buka Bunganya 🌸
+    </button>
+
+</section>
+
+
+<!-- =================================
+     HALAMAN BUNGA 9 CABANG
+================================= -->
+
+<section class="page" id="flowerPage">
+
+    <!-- BUNGA UTAMA -->
+
+    <div class="flower">
+
+        <div class="main-stem"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="flower-center"></div>
+
+        </div>
+
+    </div>
+
+
+    <h1 style="
+        font-size:35px;
+        color:#ff9bc9;
+        text-shadow:0 0 20px #ff3d91;
+    ">
+        9 Alasan Aku Sayang Kamu 🌸
+    </h1>
+
+
+    <!-- =================================
+         9 CABANG
+    ================================= -->
+
+    <div class="branches">
+
+        <!-- 1 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/300/400">
+
+            <div class="branch-text">
+
+                <strong>🌸 Senyummu</strong>
+
+                Senyummu sederhana,
+                tapi selalu berhasil
+                membuat hariku lebih indah.
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/301/400">
+
+            <div class="branch-text">
+
+                <strong>💕 Kenyamanan</strong>
+
+                Entah kenapa,
+                bersamamu selalu terasa
+                seperti berada di rumah.
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/302/400">
+
+            <div class="branch-text">
+
+                <strong>🥺 Perhatianmu</strong>
+
+                Hal-hal kecil yang kamu lakukan
+                ternyata punya arti besar
+                buat aku.
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/303/400">
+
+            <div class="branch-text">
+
+                <strong>🌷 Kehadiranmu</strong>
+
+                Tidak perlu melakukan apa-apa.
+                Cukup ada di sampingku,
+                itu sudah membuatku bahagia.
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/304/400">
+
+            <div class="branch-text">
+
+                <strong>❤️ Hatimu</strong>
+
+                Ada banyak hal tentang dirimu
+                yang membuatku semakin
+                jatuh cinta.
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/305/400">
+
+            <div class="branch-text">
+
+                <strong>✨ Caramu</strong>
+
+                Caramu berbicara,
+                tertawa, dan bercanda
+                selalu aku suka.
+
+            </div>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/306/400">
+
+            <div class="branch-text">
+
+                <strong>🌹 Kenangan</strong>
+
+                Setiap kenangan bersamamu
+                adalah sesuatu yang ingin
+                selalu aku simpan.
+
+            </div>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/307/400">
+
+            <div class="branch-text">
+
+                <strong>💖 Pilihanku</strong>
+
+                Dari sekian banyak orang,
+                aku senang bisa
+                menemukan kamu.
+
+            </div>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/308/400">
+
+            <div class="branch-text">
+
+                <strong>🌸 Kamu</strong>
+
+                Dan alasan terakhir
+                sekaligus yang paling penting...
+
+                <br>
+
+                <b>Karena kamu adalah kamu. ❤️</b>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button onclick="finishFlower()">
+        Buka pesan terakhir 💌
+    </button>
+
+</section>
+
+
+<!-- =================================
+     PENUTUP
+================================= -->
+
+<section class="page" id="closing">
+
+    <div class="closing">
+
+        <h1>
+            Untuk My Girl 🌸
+        </h1>
+
+        <div class="shake-text">
+
+            Dari sembilan batang bunga ini,
+            <br>
+
+            sebenarnya cuma ada satu
+            hal yang ingin aku katakan...
+
+            <br><br>
+
+            <span>
+                AKU SAYANG KAMU ❤️
+            </span>
+
+            <br><br>
+
+            Jangan pergi jauh-jauh ya...
+
+            <br>
+
+            karena aku masih ingin
+            membuat banyak cerita
+            bersamamu. 🥺💕
+
+        </div>
+
+    </div>
+
+    <button onclick="restart()">
+        🌸 Kocok Lagi Dari Awal
+    </button>
+
+</section>
+
+
+<script>
+
+/* =================================
+   BINTANG
+================================= */
+
+for(let i=0;i<100;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    star.style.animationDelay =
+        Math.random()*3+"s";
+
+    document
+        .getElementById("stars")
+        .appendChild(star);
+}
+
+
+/* =================================
+   MUSIK
+================================= */
+
+const music =
+    document.getElementById("music");
+
+
+function startMusic(){
+
+    music.volume=.65;
+
+    music.play().catch(()=>{});
+
+}
+
+
+/* =================================
+   BUKA BUNGA
+================================= */
+
+function startFlower(){
+
+    startMusic();
+
+    document
+        .getElementById("opening")
+        .classList.remove("active");
+
+    document
+        .getElementById("flowerPage")
+        .classList.add("active");
+
+    revealBranches();
+
+}
+
+
+/* =================================
+   9 CABANG MUNCUL BERGANTIAN
+================================= */
+
+function revealBranches(){
+
+    const branches =
+        document.querySelectorAll(".branch");
+
+    branches.forEach((branch,index)=>{
+
+        setTimeout(()=>{
+
+            branch.classList.add("show");
+
+        },700+(index*650));
+
+    });
+
+}
+
+
+/* =================================
+   PENUTUP
+================================= */
+
+function finishFlower(){
+
+    document
+        .getElementById("flowerPage")
+        .classList.remove("active");
+
+    document
+        .getElementById("closing")
+        .classList.add("active");
+
+}
+
+
+/* =================================
+   ULANG
+================================= */
+
+function restart(){
+
+    document
+        .getElementById("closing")
+        .classList.remove("active");
+
+    document
+        .getElementById("opening")
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".branch")
+        .forEach(branch=>{
+            branch.classList.remove("show");
+        });
+
+}
+
+
+/* =================================
+   HATI TERBANG
+================================= */
+
+setInterval(()=>{
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    const list=[
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "🌸",
+        "🌷"
+    ];
+
+    heart.innerHTML =
+        list[
+            Math.floor(
+                Math.random()*list.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100+"%";
+
+    heart.style.animationDuration =
+        (4+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+
+},450);
+
+</script>
+
+</body>
+</html>
+```
